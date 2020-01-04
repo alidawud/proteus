@@ -15,6 +15,11 @@ For an overall overview of the code architecture take a look at [the architectur
 
 You can read more about the motivations behind building proteus in [this blog post](https://blog.sourced.tech/post/proteus/).
 
+### Different from original repository
+* Support sql package
+* Remove gogo
+
+
 ### Install
 
 ```
@@ -23,10 +28,7 @@ go get -v github.com/alidawud/proteus/...
 
 ### Requirements
 
-There are two requirements for the full process.
-
 * [`protoc`](https://github.com/google/protobuf) binary installed on your path
-* `go get -u github.com/gogo/protobuf/...`
 
 ### Usage
 
