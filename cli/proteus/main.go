@@ -107,7 +107,7 @@ func genRPCServer(c *cli.Context) error {
 
 var (
 	goSrc       = filepath.Join(os.Getenv("GOPATH"), "src")
-	protobufSrc = filepath.Join(goSrc, "github.com", "gogo", "protobuf")
+	//protobufSrc = filepath.Join(goSrc, "github.com", "gogo", "protobuf")
 )
 
 func genAll(c *cli.Context) error {
@@ -116,9 +116,9 @@ func genAll(c *cli.Context) error {
 		return fmt.Errorf("protoc is not installed: %s", err)
 	}
 
-	if err := checkFolder(protobufSrc); err != nil {
-		return fmt.Errorf("github.com/gogo/protobuf is not installed")
-	}
+	//if err := checkFolder(protobufSrc); err != nil {
+	//	return fmt.Errorf("github.com/gogo/protobuf is not installed")
+	//}
 
 	if err := genProtos(c); err != nil {
 		return err
@@ -148,10 +148,10 @@ func genAll(c *cli.Context) error {
 
 func protocExec(protocPath, pkg, outPath, protoFile string) error {
 	protocArgs := fmt.Sprintf(
-		"--proto_path=%s:%s:%s:%s:.",
+		"--proto_path=%s:%s:%s:.",
 		goSrc,
 		path,
-		filepath.Join(protobufSrc, "protobuf"),
+		//filepath.Join(protobufSrc, "protobuf"),
 		filepath.Join(path, pkg),
 	)
 

@@ -10,8 +10,6 @@ import (
 	"golang.org/x/text/transform"
 	"golang.org/x/text/unicode/norm"
 
-	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
-
 	"github.com/alidawud/proteus/report"
 	"github.com/alidawud/proteus/scanner"
 )
@@ -68,7 +66,7 @@ func (t *Transformer) Transform(p *scanner.Package) *Package {
 	pkg := &Package{
 		Name:    toProtobufPkg(p.Path),
 		Path:    p.Path,
-		Imports: []string{"github.com/gogo/protobuf/gogoproto/gogo.proto"},
+		//Imports: []string{"github.com/gogo/protobuf/gogoproto/gogo.proto"},
 		Options: t.defaultOptionsForPackage(p),
 	}
 
@@ -230,16 +228,16 @@ func (t *Transformer) transformStruct(pkg *Package, s *scanner.Struct) *Message 
 }
 
 func (t *Transformer) defaultOptionsForScannedMessage(s *scanner.Struct) (opts Options) {
-	opts = Options{
-		"(gogoproto.typedecl)":        NewLiteralValue("false"),
-		"(gogoproto.goproto_getters)": NewLiteralValue("false"),
-	}
+	//opts = Options{
+	//	"(gogoproto.typedecl)":        NewLiteralValue("false"),
+	//	"(gogoproto.goproto_getters)": NewLiteralValue("false"),
+	//}
+	//
+	//if s.IsStringer {
+	//	opts["(gogoproto.goproto_stringer)"] = NewLiteralValue("false")
+	//}
 
-	if s.IsStringer {
-		opts["(gogoproto.goproto_stringer)"] = NewLiteralValue("false")
-	}
-
-	return
+	return Options{}
 }
 
 func (t *Transformer) transformField(pkg *Package, msg *Message, field *scanner.Field, pos int) *Field {
@@ -276,13 +274,13 @@ func (t *Transformer) transformField(pkg *Package, msg *Message, field *scanner.
 
 func (t *Transformer) defaultOptionsForStructField(field *scanner.Field) Options {
 	opts := make(Options)
-	if generator.CamelCase(toLowerSnakeCase(field.Name)) != field.Name {
-		opts["(gogoproto.customname)"] = NewStringValue(field.Name)
-	}
+	//if generator.CamelCase(toLowerSnakeCase(field.Name)) != field.Name {
+	//	opts["(gogoproto.customname)"] = NewStringValue(field.Name)
+	//}
 
-	if t.needsNotNullableOption(field.Type) {
-		opts["(gogoproto.nullable)"] = NewLiteralValue("false")
-	}
+	//if t.needsNotNullableOption(field.Type) {
+	//	opts["(gogoproto.nullable)"] = NewLiteralValue("false")
+	//}
 
 	return opts
 }
@@ -470,11 +468,12 @@ func toUpperSnakeCase(s string) string {
 }
 
 func (t *Transformer) defaultOptionsForPackage(p *scanner.Package) Options {
-	return Options{
-		"go_package":                 NewStringValue(p.Name),
-		"(gogoproto.sizer_all)":      NewLiteralValue("false"),
-		"(gogoproto.protosizer_all)": NewLiteralValue("true"),
-	}
+	return Options{}
+	//return Options{
+	//	"go_package":                 NewStringValue(p.Name),
+	//	"(gogoproto.sizer_all)":      NewLiteralValue("false"),
+	//	"(gogoproto.protosizer_all)": NewLiteralValue("true"),
+	//}
 }
 
 type nameSet map[string]struct{}
