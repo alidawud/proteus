@@ -15,9 +15,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	"gopkg.in/src-d/proteus.v1/protobuf"
-	"gopkg.in/src-d/proteus.v1/resolver"
-	"gopkg.in/src-d/proteus.v1/scanner"
+	"github.com/alidawud/proteus/protobuf"
+	"github.com/alidawud/proteus/resolver"
+	"github.com/alidawud/proteus/scanner"
 )
 
 type RPCSuite struct {
@@ -344,7 +344,7 @@ func (s *subpkgServiceServer) Point_GeneratedMethodOnPointer(ctx xcontext.Contex
 `
 
 func (s *RPCSuite) TestGenerate() {
-	pkg := "gopkg.in/src-d/proteus.v1/fixtures/subpkg"
+	pkg := "github.com/alidawud/proteus/fixtures/subpkg"
 	scanner, err := scanner.New(pkg)
 	s.Nil(err)
 
@@ -449,5 +449,5 @@ func TestRPCSuite(t *testing.T) {
 }
 
 func projectPath(path string) string {
-	return filepath.Join(os.Getenv("GOPATH"), "src", "gopkg.in/src-d/proteus.v1", path)
+	return filepath.Join(os.Getenv("GOPATH"), "src", "github.com/alidawud/proteus", path)
 }

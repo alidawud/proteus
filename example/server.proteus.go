@@ -2,7 +2,7 @@ package example
 
 import (
 	xcontext "golang.org/x/net/context"
-	"gopkg.in/src-d/proteus.v1/example/categories"
+	"github.com/alidawud/proteus/example/categories"
 )
 
 type exampleServiceServer struct {
