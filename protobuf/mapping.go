@@ -94,6 +94,13 @@ var DefaultMappings = TypeMappings{
 	"uint64":  &ProtoType{Name: "uint64", Basic: true},
 	"bool":    &ProtoType{Name: "bool", Basic: true},
 	"string":  &ProtoType{Name: "string", Basic: true},
+	"database/sql.NullString":  &ProtoType{Name: "string", Basic: true},
+	"database/sql.NullInt64":  &ProtoType{Name: "int64", Basic: true},
+	"database/sql.NullBool":    &ProtoType{Name: "bool", Basic: true},
+	"database/sql.NullTime": &ProtoType{Name: "string", Basic: true},
+	"database/sql.NullInt32":   &ProtoType{Name: "int32", Basic: true},
+	"database/sql.NullFloat64": &ProtoType{Name: "double", Basic: true},
+
 	"uint8": &ProtoType{
 		Name:       "uint32",
 		Basic:      true,

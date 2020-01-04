@@ -28,6 +28,12 @@ func New() *Resolver {
 			"time.Duration":   {},
 			"context.Context": {},
 			"error":           {},
+			"database/sql.NullString": {},
+			"database/sql.NullInt64":  {},
+			"database/sql.NullBool": {},
+			"database/sql.NullTime":  {},
+			"database/sql.NullInt32": {},
+			"database/sql.NullFloat64":  {},
 		},
 	}
 }

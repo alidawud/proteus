@@ -25,3 +25,4 @@ profile.out
 *.test
 *.prof
 .idea
+.DS_Store
