@@ -101,8 +101,8 @@ var DefaultMappings = TypeMappings{
 	"database/sql.NullInt32":   &ProtoType{Name: "int32", Basic: true},
 	"database/sql.NullFloat64": &ProtoType{Name: "double", Basic: true},
 
-	//"time.Time": &ProtoType{Name: "string", Basic: true},
-	//"time.Duration": &ProtoType{Name: "string", Basic: true},
+	"time.Time": &ProtoType{Name: "string", Basic: true},
+	"time.Duration": &ProtoType{Name: "string", Basic: true},
 
 	"uint8": &ProtoType{
 		Name:       "uint32",
@@ -156,36 +156,36 @@ var DefaultMappings = TypeMappings{
 		Basic:      true,
 		Decorators: CastToBasicType("rune"),
 	},
-	"time.Time": &ProtoType{
-		Name:     "Timestamp",
-		Package:  "google.protobuf",
-		Import:   "google/protobuf/timestamp.proto",
-		GoImport: "github.com/golang/protobuf/ptypes/timestamp",
-		//Decorators: NewDecorators(
-		//	func(p *Package, m *Message, f *Field) {
-		//		if f.Options == nil {
-		//			f.Options = make(Options)
-		//		}
-		//		f.Options["(gogoproto.stdtime)"] = NewLiteralValue("true")
-		//		f.Options["(gogoproto.nullable)"] = NewLiteralValue("false")
-		//	},
-		//),
-	},
-	"time.Duration": &ProtoType{
-		Name:     "Duration",
-		Package:  "google.protobuf",
-		Import:   "google/protobuf/duration.proto",
-		GoImport: "github.com/golang/protobuf/ptypes/duration",
-		//Decorators: NewDecorators(
-		//	func(p *Package, m *Message, f *Field) {
-		//		if f.Options == nil {
-		//			f.Options = make(Options)
-		//		}
-		//		f.Options["(gogoproto.stdduration)"] = NewLiteralValue("true")
-		//		f.Options["(gogoproto.nullable)"] = NewLiteralValue("false")
-		//	},
-		//),
-	},
+	//"time.Time": &ProtoType{
+	//	Name:     "Timestamp",
+	//	Package:  "google.protobuf",
+	//	Import:   "google/protobuf/timestamp.proto",
+	//	GoImport: "github.com/golang/protobuf/ptypes/timestamp",
+	//	//Decorators: NewDecorators(
+	//	//	func(p *Package, m *Message, f *Field) {
+	//	//		if f.Options == nil {
+	//	//			f.Options = make(Options)
+	//	//		}
+	//	//		f.Options["(gogoproto.stdtime)"] = NewLiteralValue("true")
+	//	//		f.Options["(gogoproto.nullable)"] = NewLiteralValue("false")
+	//	//	},
+	//	//),
+	//},
+	//"time.Duration": &ProtoType{
+	//	Name:     "Duration",
+	//	Package:  "google.protobuf",
+	//	Import:   "google/protobuf/duration.proto",
+	//	GoImport: "github.com/golang/protobuf/ptypes/duration",
+	//	//Decorators: NewDecorators(
+	//	//	func(p *Package, m *Message, f *Field) {
+	//	//		if f.Options == nil {
+	//	//			f.Options = make(Options)
+	//	//		}
+	//	//		f.Options["(gogoproto.stdduration)"] = NewLiteralValue("true")
+	//	//		f.Options["(gogoproto.nullable)"] = NewLiteralValue("false")
+	//	//	},
+	//	//),
+	//},
 }
 
 // ToGoOutPath returns the set of import mappings for the --go_out family of options.
